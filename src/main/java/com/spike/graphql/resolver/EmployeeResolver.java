@@ -31,6 +31,7 @@ public class EmployeeResolver {
 
 	@GraphQLMutation(name = "createAddress")
 	public Address newAddress(@GraphQLArgument(name = "address") Address address) {
+		System.out.println(Thread.currentThread().getName() +" createAddress called *******");
 		addressRepository.save(address);
 		return address;
 	}
@@ -66,7 +67,9 @@ public class EmployeeResolver {
 	}
 
 	@GraphQLQuery(name = "getAddress")
-	public Address getAddress(@GraphQLArgument(name = "id") Long id) {
+	public Address getAddress(@GraphQLArgument(name = "id") Long id,
+			@GraphQLArgument(name = "street_Name") String street_name) {
+		System.out.println("street_name ...."+street_name);
 		return addressRepository.findById(id).get();
 	}
 
@@ -77,6 +80,8 @@ public class EmployeeResolver {
 
 	@GraphQLQuery(name = "findAllAddresses")
 	public Iterable<Address> findAllAddresses() {
+		System.out.println(Thread.currentThread().getName() +" findAllAddresses called *******");
+
 		return addressRepository.findAll();
 	}
 

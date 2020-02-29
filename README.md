@@ -1,6 +1,4 @@
 # spqr-graphql-java-spring-boot-example
-Note: This project uses spring boot build snapshot 2.3.0 version inorder to verify inbuild image creation using cmd
-./mvnw spring-boot:build-image
 
 Graphql benefits:
 
